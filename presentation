@@ -1,0 +1,23 @@
+Storybook
+
+    What is Storybook?
+    
+        A framework for representing either common states within an app or edge case states. These states are represented on a component-by-component basis, to promote a component-driven development cycle.
+
+    What does it look like?
+    How do I incorporate it into my project?
+
+
+Two basic levels of organization:
+    - Component
+    - Child stories - as many as needed for a given component.
+
+Default export from a story is an object containing the following:
+    - component - the component that the story represents
+    - title - how to refer to the component in the sidebar of the Storybook app
+    - excludeStories - any exports in the story file that sould not be rendered as stories by Storybook
+    - argTypes - a sort of type specification for the arguments each story will use
+
+Each test state will generate a story, and each test state is represented as an exported function. The `args` property of the test state allows us to live edit components with the controls add-on without restarting Storybook.
+
+Storybook gives us a great way to test components manually during component construction. However, we can also add automated tests using the storyshots library that will take a snapshot of the output of these stories and actually generate a test around each one that prompts for verification if the output for a story changes in the future.
